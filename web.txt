@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trending Stories by Denil254</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #1e1e2f;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #292942;
+    }
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    nav button:hover {
+      background-color: #444;
+    }
+    .news-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .article {
+      background: white;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .article h2 {
+      margin-top: 0;
+    }
+    .article a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    .article a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>Trending Stories by Denil254</header>
+  <nav>
+    <button onclick="loadNews('technology')">Tech</button>
+    <button onclick="loadNews('sports')">Sports</button>
+    <button onclick="loadNews('general')">World</button>
+  </nav>
+  <div class="news-container" id="news"></div>
+
+  <script>
+    const apiKey = 'YOUR_API_KEY'; //5d50a07f0dbe42f0a0bb0ede09891d105d50a07f0dbe42f0a0bb0ede09891d105d50a07f0dbe42f0a0bb0ede09891d10NewsAPI.org key
+
+    async function loadNews(category) {
+      const url = `https://newsapi.org/v2/top-headlines?category=${category}&language=en&pageSize=10&apiKey=${apiKey}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      const container = document.getElementById('news');
+      container.innerHTML = '';
+
+      data.articles.forEach(article => {
+        const div = document.createElement('div');
+        div.className = 'article';
+        div.innerHTML = `
+          <h2>${article.title}</h2>
+          <p>${article.description || ''}</p>
+          <a href="${article.url}" target="_blank">Read more</a>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    // Load default news
+    loadNews('general');
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trending Stories by Denil254</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #1e1e2f;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #292942;
+    }
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    nav button:hover {
+      background-color: #444;
+    }
+    .news-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .article {
+      background: white;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .article h2 {
+      margin-top: 0;
+    }
+    .article a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    .article a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>Trending Stories by Denil254</header>
+  <nav>
+    <button onclick="loadNews('technology')">Tech</button>
+    <button onclick="loadNews('sports')">Sports</button>
+    <button onclick="loadNews('general')">World</button>
+  </nav>
+  <div class="news-container" id="news"></div>
+
+  <script>
+    const apiKey = 'YOUR_API_KEY'; // Replace with your free NewsAPI.org key
+
+    async function loadNews(category) {
+      const url = `https://newsapi.org/v2/top-headlines?category=${category}&language=en&pageSize=10&apiKey=${apiKey}`;
+      const res = await fetch(url);
+      const data = await res.json();
+      const container = document.getElementById('news');
+      container.innerHTML = '';
+
+      data.articles.forEach(article => {
+        const div = document.createElement('div');
+        div.className = 'article';
+        div.innerHTML = `
+          <h2>${article.title}</h2>
+          <p>${article.description || ''}</p>
+          <a href="${article.url}" target="_blank">Read more</a>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    // Load default news
+    loadNews('general');
+  </script>
+</body>
+</html>
